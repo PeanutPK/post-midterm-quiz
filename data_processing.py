@@ -154,14 +154,24 @@ print(min_movie_drama)
 
 movie_filter_fantasy = my_table.filter(lambda x: x['Genre'] == 'Fantasy')
 count_movie_fantasy = movie_filter_fantasy.aggregate(len, 'Film')
-print("the number of ‘Fantasy’ movie: ",end='')
+print("the number of ‘Fantasy’ movie: ", end='')
 print(count_movie_fantasy)
-# dict = {}
-# dict['Film'] = 'The Shape of Water'
-# dict['Genre'] = 'Fantasy'
-# dict['Lead Studio'] = 'Fox'
-# dict['Audience score %'] = '72'
-# dict['Profitability'] = '9.765'
-# dict['Rotten Tomatoes %'] = '92'
-# dict['Worldwide Gross'] = '195.3'
-# dict['Year'] = '2017'
+
+dict = {}
+dict['Film'] = 'The Shape of Water'
+dict['Genre'] = 'Fantasy'
+dict['Lead Studio'] = 'Fox'
+dict['Audience score %'] = '72'
+dict['Profitability'] = '9.765'
+dict['Rotten Tomatoes %'] = '92'
+dict['Worldwide Gross'] = '195.3'
+dict['Year'] = '2017'
+
+my_table.insert_row(dict)
+
+movie_filter_fantasy = my_table.filter(lambda x: x['Genre'] == 'Fantasy')
+count_movie_fantasy = movie_filter_fantasy.aggregate(len, 'Film')
+print("the number of ‘Fantasy’ movie: ", end='')
+print(count_movie_fantasy)
+
+my_table.update_row('Film', 'A Serious Man', 'Year', '2022')
